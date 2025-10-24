@@ -1,0 +1,592 @@
+/* Tour Modal Styles */
+.tour-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tour-modal {
+  background: white;
+  border-radius: 20px;
+  max-width: 1000px;
+  max-height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideInUp 0.3s ease-out;
+  position: relative;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.modal-close:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+/* Gallery Section */
+.modal-gallery {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.gallery-nav:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-prev {
+  left: 20px;
+}
+
+.gallery-next {
+  right: 20px;
+}
+
+.gallery-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.gallery-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-dot.active {
+  background: white;
+}
+
+.gallery-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Details Section */
+.modal-details {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tour-header {
+  margin-bottom: 30px;
+}
+
+.tour-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.tour-destination {
+  color: #2E8B57;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tour-duration {
+  color: #666;
+  font-size: 0.9rem;
+  background: #f0f0f0;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.tour-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.tour-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating-score {
+  font-weight: 600;
+  color: #2E8B57;
+}
+
+.review-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Tabs */
+.modal-tabs {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 30px;
+  gap: 0;
+}
+
+.tab-button {
+  padding: 15px 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #2E8B57;
+  background: rgba(46, 139, 87, 0.05);
+}
+
+.tab-button.active {
+  color: #2E8B57;
+  border-bottom-color: #2E8B57;
+  background: rgba(46, 139, 87, 0.05);
+}
+
+/* Tab Content */
+.tab-content {
+  min-height: 300px;
+}
+
+.tour-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.tour-highlights h3 {
+  color: #2E8B57;
+  margin-bottom: 15px;
+}
+
+.tour-highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tour-highlights li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #555;
+}
+
+.tour-highlights li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #2E8B57;
+  font-weight: bold;
+}
+
+/* Itinerary */
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.itinerary-item {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #2E8B57;
+}
+
+.itinerary-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.day-number {
+  background: #2E8B57;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.itinerary-item h4 {
+  color: #333;
+  margin: 0;
+}
+
+/* Details Tab */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.details-section h3 {
+  color: #2E8B57;
+  margin-bottom: 15px;
+}
+
+.included-list li {
+  color: #2E8B57;
+}
+
+.excluded-list li {
+  color: #999;
+}
+
+.availability-section {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.popular-badge {
+  display: inline-block;
+  background: #ff6b35;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* Reviews Tab */
+.reviews-summary {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.overall-rating {
+  text-align: center;
+}
+
+.rating-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2E8B57;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-item {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 15px;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewer-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.reviewer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reviewer-details h4 {
+  margin: 0;
+  color: #333;
+}
+
+.reviewer-details p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.review-rating {
+  text-align: right;
+}
+
+.review-date {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.review-comment {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.helpful-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.helpful-btn:hover {
+  border-color: #2E8B57;
+  color: #2E8B57;
+}
+
+/* Booking Section */
+.booking-section {
+  margin-top: 30px;
+  padding: 25px;
+  background: #2E8B57;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.price-per-person {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.booking-actions .btn {
+  padding: 12px 25px;
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .tour-modal-overlay {
+    padding: 10px;
+  }
+
+  .tour-modal {
+    max-height: 95vh;
+    border-radius: 15px;
+  }
+
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-gallery {
+    height: 250px;
+  }
+
+  .modal-details {
+    padding: 20px;
+  }
+
+  .tour-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-tabs {
+    overflow-x: auto;
+    gap: 0;
+  }
+
+  .tab-button {
+    padding: 12px 20px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .review-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .review-rating {
+    text-align: left;
+  }
+
+  .booking-section {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .booking-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-gallery {
+    height: 200px;
+  }
+
+  .gallery-nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .gallery-prev {
+    left: 10px;
+  }
+
+  .gallery-next {
+    right: 10px;
+  }
+
+  .modal-details {
+    padding: 15px;
+  }
+
+  .tour-title {
+    font-size: 1.3rem;
+  }
+
+  .tab-button {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+}
