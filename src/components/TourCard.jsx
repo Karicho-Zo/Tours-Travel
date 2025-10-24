@@ -19,25 +19,17 @@ const TourCard = ({ tour, onViewDetails }) => {
           }}
           onLoad={() => console.log('Image loaded successfully:', tour.title)}
         />
-        <div className="tour-overlay">
-          <span className="tour-price">{tour.price}</span>
+        <div className="image-overlay"></div>
+        <div className="featured-label">Featured</div>
+        <div className="icons-overlay">
+          <div className="icon-item">⭐{tour.rating}</div>
+          <div className="icon-item">⏱ {tour.duration}</div>
+          <div className="icon-item"> {tour.destination}</div>
         </div>
-      </div>
-      <div className="tour-content">
-        <div className="tour-meta">
-          <span className="tour-destination">{tour.destination}</span>
-          <span className="tour-duration">{tour.duration}</span>
-        </div>
-        <h3 className="tour-title">{tour.title}</h3>
-        <p className="tour-description">{tour.description}</p>
-        <div className="tour-actions">
-          <button
-            onClick={() => onViewDetails && onViewDetails(tour)}
-            className="btn btn-primary"
-          >
-            View Details
-          </button>
-          <a href={`/tours`} className="btn btn-secondary">Book Now</a>
+        <div className="bottom-overlay">
+          <h3 className="overlay-title">{tour.title}</h3>
+          <p className="overlay-price">From {tour.price}</p>
+          <button className="offer-button" onClick={() => onViewDetails && onViewDetails(tour)}>To The Offer →</button>
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ const Tours = () => {
       duration: "7 Days",
       price: "$1,899",
       image: '/assets/Cape.jpg',
-     description: "Discover the beauty of Cape Town with Table Mountain, wine tours, and coastal adventures.",
+      description: "Discover the beauty of Cape Town with Table Mountain, wine tours, and coastal adventures.",
       rating: 4.9
     },
     {
@@ -55,23 +55,83 @@ const Tours = () => {
     },
     {
       id: 5,
-      title: "Morocco Desert Adventure",
-      destination: "Morocco",
-      duration: "10 Days",
+      title: "Algerian Desert Adventure",
+      destination: "Algeria",
+      duration: "6 Days",
       price: "$1,499",
-      image: '/assets/Desert.jpg',
-      description: "Experience the Sahara Desert, ancient medinas, and the culture of Morocco on this comprehensive tour.",
+      image: '/assets/Algeria.jpg',
+      description: "Explore the vast Sahara Desert, ancient ruins, and vibrant culture in Algeria.",
       rating: 4.5
     },
     {
       id: 6,
-      title: "Serengeti Migration Safari",
+      title: "Sahara Desert Tour",
+      destination: "Morocco",
+      duration: "7 Days",
+      price: "$1,799",
+      image: '/assets/Desert.jpg',
+      description: "Journey through the stunning Sahara Desert with camel treks and starry nights.",
+      rating: 4.7
+    },
+    {
+      id: 7,
+      title: "Ghana Cultural Tour",
+      destination: "Ghana",
+      duration: "5 Days",
+      price: "$1,399",
+      image: '/assets/Ghana.jpg',
+      description: "Discover Ghana's rich history, beaches, and cultural heritage sites.",
+      rating: 4.6
+    },
+    {
+      id: 8,
+      title: "Madagascar Wildlife Expedition",
+      destination: "Madagascar",
+      duration: "8 Days",
+      price: "$2,299",
+      image: '/assets/Madagasca.jpg',
+      description: "Explore unique wildlife, rainforests, and beaches in Madagascar.",
+      rating: 4.8
+    },
+    {
+      id: 9,
+      title: "Kilimanjaro Trek",
+      destination: "Tanzania",
+      duration: "9 Days",
+      price: "$2,499",
+      image: '/assets/mt-kilimanjaro.jpg',
+      description: "Conquer Mount Kilimanjaro with guided treks and breathtaking views.",
+      rating: 4.9
+    },
+    {
+      id: 10,
+      title: "Nigeria Heritage Tour",
+      destination: "Nigeria",
+      duration: "6 Days",
+      price: "$1,599",
+      image: '/assets/nigeria.jpg',
+      description: "Experience Nigeria's diverse culture, markets, and natural beauty.",
+      rating: 4.4
+    },
+    {
+      id: 11,
+      title: "Serengeti Safari",
       destination: "Tanzania",
       duration: "7 Days",
-      price: "$2,399",
+      price: "$1,999",
       image: '/assets/Serengeti.jpg',
-      description: "Follow the Great Migration in Tanzania's Serengeti National Park with luxury camping experiences.",
-      rating: 4.9
+      description: "Witness the Great Migration and wildlife in the iconic Serengeti.",
+      rating: 4.8
+    },
+    {
+      id: 12,
+      title: "Tunisian Ancient Sites",
+      destination: "Tunisia",
+      duration: "5 Days",
+      price: "$1,299",
+      image: '/assets/Tunisia.jpg',
+      description: "Visit ancient Roman ruins, medinas, and Mediterranean coast in Tunisia.",
+      rating: 4.5
     }
   ];
 
