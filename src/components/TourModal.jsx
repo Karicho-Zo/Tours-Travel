@@ -4,6 +4,14 @@ import './TourModal.css';
 const TourModal = ({ tour, isOpen, onClose }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('overview');
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [bookingData, setBookingData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    travelers: 1,
+    departureDate: ''
+  });
 
   if (!isOpen || !tour) return null;
 
@@ -104,6 +112,21 @@ const TourModal = ({ tour, isOpen, onClose }) => {
 
   const prevImage = () => {
     setActiveImageIndex((prev) => (prev - 1 + extendedTourData.gallery.length) % extendedTourData.gallery.length);
+  };
+
+  const handleBookNow = () => {
+    setShowBookingForm(true);
+  };
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    alert(`Booking submitted for ${extendedTourData.title}!\n\nDetails:\nName: ${bookingData.name}\nEmail: ${bookingData.email}\nPhone: ${bookingData.phone}\nTravelers: ${bookingData.travelers}\nDeparture Date: ${bookingData.departureDate}\n\nWe will contact you soon.`);
+    setShowBookingForm(false);
+    setBookingData({ name: '', email: '', phone: '', travelers: 1, departureDate: '' });
+  };
+
+  const handleInputChange = (e) => {
+    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -319,15 +342,47 @@ const TourModal = ({ tour, isOpen, onClose }) => {
 
             {/* Booking Section */}
             <div className="booking-section">
-              <div className="price-section">
-                <span className="price-label">From</span>
-                <span className="price-value">{extendedTourData.price}</span>
-                <span className="price-per-person">per person</span>
-              </div>
-              <div className="booking-actions">
-                <button className="btn btn-primary">Book Now</button>
-                <button className="btn btn-secondary">Add to Wishlist</button>
-              </div>
+              {!showBookingForm ? (
+                <>
+                  <div className="price-section">
+                    <span className="price-label">From</span>
+                    <span className="price-value">{extendedTourData.price}</span>
+                    <span className="price-per-person">per person</span>
+                  </div>
+                  <div className="booking-actions">
+                    <button className="btn btn-primary" onClick={handleBookNow}>Book Now</button>
+                    <button className="btn btn-secondary">Add to Wishlist</button>
+                  </div>
+                </>
+              ) : (
+                <form className="booking-form" onSubmit={handleBookingSubmit}>
+                  <h3>Book Your Tour</h3>
+                  <div className="form-group">
+                    <label htmlFor="name">Full Name</label>
+                    <input type="text" id="name" name="name" value={bookingData.name} onChange={handleInputChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" value={bookingData.email} onChange={handleInputChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" value={bookingData.phone} onChange={handleInputChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="travelers">Number of Travelers</label>
+                    <input type="number" id="travelers" name="travelers" value={bookingData.travelers} onChange={handleInputChange} min="1" required />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="departureDate">Preferred Departure Date</label>
+                    <input type="date" id="departureDate" name="departureDate" value={bookingData.departureDate} onChange={handleInputChange} required />
+                  </div>
+                  <div className="form-actions">
+                    <button type="submit" className="btn btn-primary">Submit Booking</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => setShowBookingForm(false)}>Cancel</button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>
